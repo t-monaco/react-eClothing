@@ -19,4 +19,28 @@
     color: black;
     border: 1px solid black;
   }
+
+  &.google-sign-in {
+      background-color: #82b0fd;
+      color: white;
+      position: relative;
+      padding-right: 52px;
+
+      &:hover {
+          background-color: white;
+          color: black;
+          border: 1px solid black;
+      }
+
+      &::after {
+          content: '';
+          position: absolute;
+          background: url('./../../assets/google.svg') no-repeat;
+          background-position: center;
+          width: 30px;
+          height: 100%;
+          right: 12px;
+          top: 0;
+      }
+  }
 }
