@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { ReactComponent as Logo } from '../../assets/gorilla-black.svg';
+import { ReactComponent as SVG } from '../../assets/gorilla-black.svg';
 import { auth } from './../../firebase/firebase.utils';
 
-import './header.styles.scss';
+import styled from 'styled-components';
 
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
@@ -14,30 +14,24 @@ import { selectCurrentUser } from './../../redux/user/user.selectors';
 
 const Header = ({ currentUser, hidden }) => {
     return (
-        <div className='header'>
-            <Link to='/' className='logo-container'>
-                <Logo className='logo' />
-            </Link>
-            <div className='options'>
-                <Link to='/shop' className='option'>
-                    SHOP
-                </Link>
-                <Link to='/contact' className='option'>
-                    CONTACT
-                </Link>
+        <HeaderContainer>
+            <LogoContainer to='/'>
+                <Logo />
+            </LogoContainer>
+            <OptionsContainer>
+                <OptionLink to='/shop'>SHOP</OptionLink>
+                <OptionLink to='/contact'>CONTACT</OptionLink>
                 {currentUser ? (
-                    <div className='option' onClick={() => auth.signOut()}>
+                    <OptionLink as='div' onClick={() => auth.signOut()}>
                         SIGN OUT
-                    </div>
+                    </OptionLink>
                 ) : (
-                    <Link className='option' to='/signin'>
-                        SIGN IN
-                    </Link>
+                    <OptionLink to='/signin'>SIGN IN</OptionLink>
                 )}
                 <CartIcon />
-            </div>
+            </OptionsContainer>
             {hidden ? null : <CartDropdown />}
-        </div>
+        </HeaderContainer>
     );
 };
 
@@ -47,3 +41,37 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export default connect(mapStateToProps)(Header);
+
+// *** STYLES ***
+
+const HeaderContainer = styled.div`
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+`;
+
+const LogoContainer = styled(Link)`
+    height: 100%;
+    width: 70px;
+`;
+
+const Logo = styled(SVG)`
+    max-width: 100%;
+    max-height: 100%;
+`;
+
+const OptionsContainer = styled.div`
+    cursor: pointer;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+`;
+
+const OptionLink = styled(Link)`
+    padding: 10px 15px;
+    cursor: pointer;
+`;
