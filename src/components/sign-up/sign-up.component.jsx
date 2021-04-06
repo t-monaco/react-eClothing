@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
-import './sign-up.styles.scss';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { signUpStart } from '../../redux/user/user.actions';
 
-export default class SignUp extends Component {
+class SignUp extends Component {
     constructor(props) {
         super(props);
 
@@ -21,28 +21,14 @@ export default class SignUp extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         const { displayName, email, password, confirmPassword } = this.state;
+        const { signUpStart } = this.props;
 
         if (password !== confirmPassword) {
             alert(`password don't match`);
             return;
         }
 
-        try {
-            const { user } = await auth.createUserWithEmailAndPassword(
-                email,
-                password
-            );
-            await createUserProfileDocument(user, { displayName });
-
-            this.setState({
-                displatName: '',
-                email: '',
-                password: '',
-                confirmPassword: '',
-            });
-        } catch (error) {
-            console.log(error);
-        }
+        signUpStart({ email, password, displayName });
     };
 
     handleChange = (event) => {
@@ -54,8 +40,8 @@ export default class SignUp extends Component {
     render() {
         const { displayName, email, password, confirmPassword } = this.state;
         return (
-            <div className='sign-up'>
-                <h2 className='title'>I do not have an acocunt</h2>
+            <SignUpContainer>
+                <SignUpTitle>I do not have an acocunt</SignUpTitle>
                 <span>Sign up with your email & password</span>
                 <form onSubmit={this.handleSubmit}>
                     <FormInput
@@ -92,7 +78,25 @@ export default class SignUp extends Component {
                     />
                     <CustomButton type='submit'>SIGN UP</CustomButton>
                 </form>
-            </div>
+            </SignUpContainer>
         );
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    signUpStart: (userCredentials) => dispatch(signUpStart(userCredentials)),
+});
+
+export default connect(null, mapDispatchToProps)(SignUp);
+
+// *** STYLES ***
+
+const SignUpContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+`;
+
+const SignUpTitle = styled.h2`
+    margin: 10px 0;
+`;
