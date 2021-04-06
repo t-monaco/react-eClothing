@@ -45,7 +45,6 @@ export function* onGoogleSignInStart() {
 }
 
 export function* signInWithEmail({ payload: { email, password } }) {
-    console.log(password);
     try {
         const { user } = yield auth.signInWithEmailAndPassword(email, password);
         yield getSnapshotFromUserAuth(user);

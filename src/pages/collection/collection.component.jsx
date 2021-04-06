@@ -25,8 +25,6 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 export default connect(mapStateToProps)(CollectionPage);
-    // font-size: 28px;
-    // margin-bottom: 25px;
 
 // *** STYLES ***
 
