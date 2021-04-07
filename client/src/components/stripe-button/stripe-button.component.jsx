@@ -7,7 +7,6 @@ const StripeCheckoutButton = ({ price }) => {
     const publishableKey = 'pk_test_CUvN2xtlV0IXxPTfN97nEGeU00usadxTo1';
 
     const onToken = (token) => {
-        console.log(token);
         axios({
             url: 'payment',
             method: 'post',
