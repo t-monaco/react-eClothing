@@ -13,7 +13,7 @@ const CollectionItem = ({ item, addItem }) => {
             <BackgroundImage className='image' imageUrl={imageUrl} />
             <CollectionFooterContainer>
                 <NameContainer className='name'>{name}</NameContainer>
-                <PriceContainer className='preice'>{price}</PriceContainer>
+                <PriceContainer className='preice'>${price}</PriceContainer>
             </CollectionFooterContainer>
             <AddButton onClick={() => addItem(item)} inverted>
                 ADD TO CART
@@ -28,6 +28,7 @@ const mapDispatchToProps = (dispach) => ({
 
 export default connect(null, mapDispatchToProps)(CollectionItem);
 
+// ***STYLES ***
 
 const CollectionItemContainer = styled.div`
     width: 22vw;
@@ -45,6 +46,18 @@ const CollectionItemContainer = styled.div`
             display: flex;
         }
     }
+
+    @media screen and (max-width: 800px) {
+        width: 40vw;
+        &:hover {
+            .image {
+                opacity: unset;
+            }
+            button {
+                opacity: unset;
+            }
+        }
+    }
 `;
 
 const AddButton = styled(CustomButton)`
@@ -53,6 +66,13 @@ const AddButton = styled(CustomButton)`
     position: absolute;
     top: 255px;
     display: none;
+
+    @media screen and (max-width: 800px) {
+        display: block;
+        min-width: unset;
+        opacity: 0.9;
+        padding: 0 10px;
+    }
 `;
 
 const BackgroundImage = styled.div`
@@ -73,11 +93,10 @@ const CollectionFooterContainer = styled.div`
 `;
 
 const NameContainer = styled.span`
-    width: 90%;
     margin-bottom: 15px;
 `;
 
 const PriceContainer = styled.span`
-    width: 10%;
+    margin-left: 5px;
     text-align: right;
 `;

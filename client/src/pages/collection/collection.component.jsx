@@ -31,6 +31,7 @@ export default connect(mapStateToProps)(CollectionPage);
 const CollectionPageContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
 `;
 
 const CollectionTitle = styled.h2`
@@ -45,5 +46,10 @@ const CollectionItemContainer = styled.div`
 
     & > div {
         margin-bottom: 50px;
+    }
+
+    @media screen and (max-width: 800px) {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
     }
 `;
