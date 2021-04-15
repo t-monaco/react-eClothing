@@ -2,13 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Directory from '../../components/directory/directory.component';
 
-const HomePage = () => {
-    return (
-        <HomeContainer>
-            <Directory />
-        </HomeContainer>
-    );
-};
+const HomePage = () => (
+    <HomeContainer>
+        <Directory />
+    </HomeContainer>
+);
 
 export default HomePage;
 
