@@ -10,7 +10,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 const port = process.env.PORT || 5000;
-app.use(compression);
+app.use(compression());
 
 // TODO: try express.json() instead of bodyParser
 app.use(bodyParser.json());
