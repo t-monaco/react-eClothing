@@ -28,7 +28,7 @@ export function* updateCartInFirebase() {
     const currentUser = yield select(selectCurrentUser);
     if (currentUser) {
         try {
-            const cartRef = yield (currentUser.id);
+            const cartRef = yield getUserCartRef(currentUser.id);
             const cartItems = yield select(selectCartItems);
             yield cartRef.update({ cartItems });
         } catch (error) {
