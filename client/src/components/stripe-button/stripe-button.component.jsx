@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import StripeCheckout from 'react-stripe-checkout';
-import {
-    updateCartAfterCheckoutSuccess,
-} from '../../redux/cart/cart.actions';
+import { updateCartAfterCheckoutSuccess } from '../../redux/cart/cart.actions';
 
-const StripeCheckoutButton = ({
-    price,
-    updateCartAfterCheckoutSuccess,
-}) => {
+import Swal from 'sweetalert2/src/sweetalert2';
+
+const StripeCheckoutButton = ({ price, updateCartAfterCheckoutSuccess }) => {
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_CUvN2xtlV0IXxPTfN97nEGeU00usadxTo1';
 
@@ -24,7 +21,14 @@ const StripeCheckoutButton = ({
             },
         })
             .then((response) => {
-                alert('Payment Successful');
+                // fire custom alert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Payment Successful',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                
                 updateCartAfterCheckoutSuccess();
             })
             .catch((error) => {
