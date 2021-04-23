@@ -17,7 +17,7 @@ import '@sweetalert2/themes/dark'
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const SignInAndSignOut = lazy(() =>
-    import('./pages/sign-in-sign-out/sign-in-sign-out.component')
+    import('./pages/sign-in-sign-up/sign-in-sign-up.component')
 );
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import MenuItem from '../menu-item/menu-item.component';
 
-const Directory = ({ sections }) => (
+export const Directory = ({ sections }) => (
     <DirectoryContainer>
         {sections.map(({ id, ...otherSectionProps }) => (
             <MenuItem key={id} {...otherSectionProps} />

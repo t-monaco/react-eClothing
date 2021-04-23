@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { selectCollectionForPreview } from '../../redux/shop/shop.selectors';
 import CollectionPreview from '../preview-collection/collection-preview.component';
 
-const CollectionsOverview = ({ collections }) => (
+export const CollectionsOverview = ({ collections }) => (
     <CollectionsOverviewContainer>
         {collections.map(({ id, ...otherCollectionProps }) => (
             <CollectionPreview key={id} {...otherCollectionProps} />

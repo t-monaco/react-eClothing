@@ -4,11 +4,13 @@ import {
     convertCollectionsSnapshotToMap,
     firestore,
 } from '../../firebase/firebase.utils';
+
 import {
     fetchCollectionsFailure,
     fetchCollectionsSuccess,
 } from './shop.actions';
-import { ShopActionTypes } from './shop.types';
+
+import ShopActionTypes from './shop.types';
 
 export function* fetchCollectionsAsync() {
     try {
@@ -24,7 +26,7 @@ export function* fetchCollectionsAsync() {
     }
 }
 
-export function* onfetchCollectionsStart() {
+export function* onFetchCollectionsStart() {
     yield takeLatest(
         ShopActionTypes.FETCH_COLLECTIONS_START,
         fetchCollectionsAsync
@@ -32,5 +34,5 @@ export function* onfetchCollectionsStart() {
 }
 
 export function* shopSagas() {
-    yield all([call(onfetchCollectionsStart)]);
+    yield all([call(onFetchCollectionsStart)]);
 }

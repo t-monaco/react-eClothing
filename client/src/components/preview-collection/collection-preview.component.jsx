@@ -4,7 +4,13 @@ import styled from 'styled-components';
 
 import CollectionItem from '../collection-item/collection-item.component';
 
-const CollectionPreview = ({ title, items, history, match, routeName }) => {
+export const CollectionPreview = ({
+    title,
+    items,
+    history,
+    match,
+    routeName,
+}) => {
     return (
         <CollectionPreviewContainer>
             <TitleContainer
@@ -34,7 +40,7 @@ const CollectionPreviewContainer = styled.div`
     margin-bottom: 30px;
 
     @media screen and (max-width: 800px) {
-        align-items: center
+        align-items: center;
     }
 `;
 
@@ -43,6 +49,8 @@ const TitleContainer = styled.h1`
     margin-bottom: 25px;
     cursor: pointer;
 `;
+
+TitleContainer.displayName = 'TitleContainer';
 
 const PreviewContainer = styled.div`
     display: flex;

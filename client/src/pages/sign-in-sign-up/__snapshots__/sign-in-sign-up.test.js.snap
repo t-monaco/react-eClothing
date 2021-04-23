@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SignInAndSignUpPage component 1`] = `
+<styled.div
+  className="sign-in-and-sign-out"
+>
+  <Connect(SignIn) />
+  <Connect(SignUp) />
+</styled.div>
+`;

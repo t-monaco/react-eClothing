@@ -8,7 +8,7 @@ import {
     removeItem,
 } from './../../redux/cart/cart.actions';
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+export const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
     const { imageUrl, name, price, quantity } = cartItem;
 
     return (
@@ -82,7 +82,11 @@ const QuantityContainer = styled(TextContainer)`
     }
 `;
 
+QuantityContainer.displayName = 'QuantityContainer';
+
 const RemoveButtonContainer = styled.div`
     padding-left: 12px;
     cursor: pointer;
 `;
+
+RemoveButtonContainer.displayName = 'RemoveButtonContainer';

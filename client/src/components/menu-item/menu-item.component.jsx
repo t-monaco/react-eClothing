@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
+export const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
     <MenuItemContainer
         size={size}
         onClick={() => history.push(`${match.url}${linkUrl}`)}
@@ -56,6 +56,8 @@ const MenuItemContainer = styled.div`
     }
 `;
 
+MenuItemContainer.displayName = 'MenuItemContainer';
+
 const BackgroundImageContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -63,6 +65,8 @@ const BackgroundImageContainer = styled.div`
     background-position: center;
     background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
+
+BackgroundImageContainer.displayName = 'BackgroundImageContainer';
 
 const ContentContainer = styled.div`
     height: 90px;

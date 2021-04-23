@@ -11,7 +11,7 @@ import { selectCartHidden } from './../../redux/cart/cart.selectors';
 import { selectCurrentUser } from './../../redux/user/user.selectors';
 import { signOutStart } from '../../redux/user/user.actions';
 
-const Header = ({ currentUser, hidden, signOutStart }) => {
+export const Header = ({ currentUser, hidden, signOutStart }) => {
     return (
         <HeaderContainer>
             <LogoContainer to='/'>
@@ -87,3 +87,5 @@ const OptionLink = styled(Link)`
     padding: 10px 15px;
     cursor: pointer;
 `;
+
+OptionLink.displayName = 'OptionLink';

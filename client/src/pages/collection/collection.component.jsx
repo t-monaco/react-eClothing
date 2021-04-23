@@ -5,17 +5,17 @@ import styled from 'styled-components';
 import { selectCollection } from '../../redux/shop/shop.selectors';
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
-const CollectionPage = ({ collection }) => {
+export const CollectionPage = ({ collection }) => {
     const { title, items } = collection;
 
     return (
         <CollectionPageContainer>
             <CollectionTitle>{title.toUpperCase()}</CollectionTitle>
-            <CollectionItemContainer>
+            <CollectionItemsContainer>
                 {items.map((item) => (
                     <CollectionItem key={item.id} item={item} />
                 ))}
-            </CollectionItemContainer>
+            </CollectionItemsContainer>
         </CollectionPageContainer>
     );
 };
@@ -39,7 +39,7 @@ const CollectionTitle = styled.h2`
     margin: 0 auto 30px;
 `;
 
-const CollectionItemContainer = styled.div`
+const CollectionItemsContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
@@ -53,3 +53,5 @@ const CollectionItemContainer = styled.div`
         grid-gap: 15px;
     }
 `;
+
+CollectionItemsContainer.displayName = 'CollectionItemsContainer';

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const FormInput = ({ handleChange, label, ...props }) => (
+export const FormInput = ({ handleChange, label, ...props }) => (
     <GroupContainer>
         <FormInputContainer onChange={handleChange} {...props} />
         {label ? (
@@ -53,6 +53,8 @@ const FormInputContainer = styled.input`
     }
 `;
 
+FormInputContainer.displayName = 'FormInputContainer';
+
 const FormInputLabel = styled.label`
     color: ${subColor};
     font-size: 16px;
@@ -66,3 +68,5 @@ const FormInputLabel = styled.label`
         ${shrinkLabelStyles}
     }
 `;
+
+FormInputLabel.displayName = 'FormInputLabel';

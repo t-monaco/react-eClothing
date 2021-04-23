@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
 import { addItem } from './../../redux/cart/cart.actions';
 
-const CollectionItem = ({ item, addItem }) => {
+export const CollectionItem = ({ item, addItem }) => {
     const { imageUrl, name, price } = item;
 
     return (
@@ -75,6 +75,8 @@ const AddButton = styled(CustomButton)`
     }
 `;
 
+AddButton.displayName = 'AddButton';
+
 const BackgroundImage = styled.div`
     width: 100%;
     height: 95%;
@@ -84,6 +86,8 @@ const BackgroundImage = styled.div`
     background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
+BackgroundImage.displayName = 'BackgroundImage';
+
 const CollectionFooterContainer = styled.div`
     width: 100%;
     height: 5%;
@@ -92,11 +96,17 @@ const CollectionFooterContainer = styled.div`
     font-size: 18px;
 `;
 
+CollectionFooterContainer.displayName = 'CollectionFooterContainer';
+
 const NameContainer = styled.span`
     margin-bottom: 15px;
 `;
+
+NameContainer.displayName = 'NameContainer';
 
 const PriceContainer = styled.span`
     margin-left: 5px;
     text-align: right;
 `;
+
+PriceContainer.displayName = 'PriceContainer';

@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import googleIcon from './../../assets/google.svg';
 
-const CustomButton = ({ children, ...props }) => (
+export const CustomButton = ({ children, ...props }) => (
     <CustomButtonContainer {...props}>{children}</CustomButtonContainer>
 );
 

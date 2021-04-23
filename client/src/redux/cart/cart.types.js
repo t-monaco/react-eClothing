@@ -1,4 +1,4 @@
-export const CartActionTypes = {
+const CartActionTypes = {
     TOGGLE_CART_HIDDEN: 'TOGGLE_CART_HIDDEN',
     ADD_ITEM: 'ADD_ITEM',
     REMOVE_ITEM: 'REMOVE_ITEM',
@@ -9,3 +9,5 @@ export const CartActionTypes = {
     UPDATE_CART_AFTER_CHECKOUT_SUCCESS:
         'UPDATE_CART_AFTER_CHECKOUT_SUCCESS',
 };
+
+export default CartActionTypes
