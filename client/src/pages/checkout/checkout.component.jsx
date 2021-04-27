@@ -56,7 +56,6 @@ export default connect(mapStateToProps)(CheckoutPage);
 
 const CheckoutPageContainer = styled.div`
     width: 55%;
-    min-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;

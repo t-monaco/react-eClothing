@@ -52,6 +52,7 @@ const HeaderContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items:center;
     margin-bottom: 25px;
 
     @media screen and (max-width: 800px) {
