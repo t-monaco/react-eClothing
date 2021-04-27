@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Footer component 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.h3>
+      EXPLORE
+    </styled.h3>
+    <styled.ul>
+      <li>
+        <Styled(Link)
+          to="/shop/hats"
+        >
+          Hats
+        </Styled(Link)>
+      </li>
+      <li>
+        <Styled(Link)
+          to="/shop/jackets"
+        >
+          Jackets
+        </Styled(Link)>
+      </li>
+      <li>
+        <Styled(Link)
+          to="/shop/sneakers"
+        >
+          Sneakers
+        </Styled(Link)>
+      </li>
+      <li>
+        <Styled(Link)
+          to="/shop/womens"
+        >
+          Womens
+        </Styled(Link)>
+      </li>
+      <li>
+        <Styled(Link)
+          to="/shop/mens"
+        >
+          Mens
+        </Styled(Link)>
+      </li>
+    </styled.ul>
+  </styled.div>
+  <styled.div>
+    <styled.h3>
+      CONTACT US
+    </styled.h3>
+    <styled.ul>
+      <li>
+        043-688-36954
+      </li>
+      <li>
+        Strickstrasse 117, Zürich
+      </li>
+      <li>
+        sales@gorillabross.com
+      </li>
+    </styled.ul>
+  </styled.div>
+  <styled.div>
+    <styled.h3>
+      FOLLOW US
+    </styled.h3>
+    <styled.ul>
+      <li>
+        <a
+          href="https://facebook.com"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Styled(Component) />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://twitter.com"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Styled(Component) />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://instagram.com"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Styled(Component) />
+        </a>
+      </li>
+    </styled.ul>
+  </styled.div>
+</styled.div>
+`;

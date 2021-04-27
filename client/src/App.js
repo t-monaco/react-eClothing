@@ -12,7 +12,8 @@ import { checkUserSession } from './redux/user/user.actions';
 
 import { GlobalStyle } from './global.styles';
 // sweetAlert2 styles
-import '@sweetalert2/themes/dark'
+import '@sweetalert2/themes/dark';
+import { Footer } from './components/footer/footer.component';
 
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
@@ -27,7 +28,7 @@ const App = ({ checkUserSession, currentUser }) => {
     }, [checkUserSession]);
 
     return (
-        <div>
+        <div id='page-container'>
             <GlobalStyle />
             <Header />
             <Switch>
@@ -54,6 +55,7 @@ const App = ({ checkUserSession, currentUser }) => {
                     </Suspense>
                 </ErrorBoundary>
             </Switch>
+            <Footer />
         </div>
     );
 };
